@@ -20,7 +20,7 @@ function Clothes () {
   };
 
   useEffect(() => {
-    fetch(`https://market-masters.000webhostapp.com/dashboard/api.php?category=${switchCat}`)
+    fetch(`${process.env.REACT_APP_PROJECTS_API}dashboard/api.php?category=${switchCat}`)
       .then((res) => res.json())
       .then((json) => {
         setData(json);
@@ -46,7 +46,7 @@ function Clothes () {
         <div className="cardsParnet">
           {data.map((product, index) => (
             <div className="card" key={index}>
-              <img src={`https://market-masters.000webhostapp.com/dashboard/imgs/${product.image}`} alt="Product" />
+              <img src={`${process.env.REACT_APP_PROJECTS_API}dashboard/imgs/${product.image}`} alt="Product" />
               <p>{product.title}</p>
               <p>
                 <span style={{ color: "#900C3F" }}>Price</span>: {product.price}
